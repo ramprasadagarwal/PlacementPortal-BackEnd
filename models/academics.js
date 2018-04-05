@@ -1,5 +1,3 @@
-
-
 module.exports = (sequelize, DataTypes) => {
   const academics = sequelize.define('academics', {
     usn: DataTypes.STRING,
@@ -11,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     xiiboard: DataTypes.STRING,
     xiimarks: DataTypes.DECIMAL,
     xiiyear: DataTypes.INTEGER,
+    cetrank: DataTypes.INTEGER,
     cgpa1: DataTypes.DECIMAL,
     cgpa2: DataTypes.DECIMAL,
     cgpa3: DataTypes.DECIMAL,

@@ -1,5 +1,3 @@
-
-
 module.exports = {
   up: (queryInterface, Sequelize) => queryInterface.createTable('academics', {
     id: {
@@ -33,6 +31,9 @@ module.exports = {
       type: Sequelize.DECIMAL,
     },
     xiiyear: {
+      type: Sequelize.INTEGER,
+    },
+    cetrank: {
       type: Sequelize.INTEGER,
     },
     cgpa1: {
