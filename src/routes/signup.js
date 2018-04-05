@@ -14,11 +14,10 @@ module.exports = {
         } else {
           createNewUser(encryptUserData(userData))
             .then((databaseMessage) => {
-              const expectedOutput = ['branch', 'cgpa', 'createdAt', 'currentbacklog', 'email', 'fullName', 'historybacklog', 'id', 'password', 'placed', 'updatedAt', 'usn', 'xclass', 'xiiclass', 'year'];
+              const expectedOutput = ['usn', 'createdAt', 'id', 'password', 'updatedAt'];
               if (Object.keys(databaseMessage).sort().toString() === expectedOutput.sort().toString()) {
                 Response('User Registered Successfully').code(201);
               } else {
-                console.log(Object.keys(databaseMessage).sort().toString(), expectedOutput.sort().toString());
                 Response('Internal Database Server Error').code(500);
               }
             });

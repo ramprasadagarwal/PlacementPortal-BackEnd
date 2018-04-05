@@ -39,26 +39,50 @@ module.exports = {
     cgpa1: {
       type: Sequelize.DECIMAL,
     },
+    credit1: {
+      type: Sequelize.INTEGER,
+    },
     cgpa2: {
       type: Sequelize.DECIMAL,
+    },
+    credit2: {
+      type: Sequelize.INTEGER,
     },
     cgpa3: {
       type: Sequelize.DECIMAL,
     },
+    credit3: {
+      type: Sequelize.INTEGER,
+    },
     cpga4: {
       type: Sequelize.DECIMAL,
+    },
+    credit4: {
+      type: Sequelize.INTEGER,
     },
     cgpa5: {
       type: Sequelize.DECIMAL,
     },
+    credit5: {
+      type: Sequelize.INTEGER,
+    },
     cgpa6: {
       type: Sequelize.DECIMAL,
+    },
+    credit6: {
+      type: Sequelize.INTEGER,
     },
     cgpa7: {
       type: Sequelize.DECIMAL,
     },
+    credit7: {
+      type: Sequelize.INTEGER,
+    },
     cgpa8: {
       type: Sequelize.DECIMAL,
+    },
+    credit8: {
+      type: Sequelize.INTEGER,
     },
     totalcredit: {
       type: Sequelize.INTEGER,

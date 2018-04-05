@@ -11,7 +11,7 @@ module.exports = {
     usn: {
       type: Sequelize.STRING,
     },
-    fullName: {
+    fullname: {
       type: Sequelize.STRING,
     },
     email: {
@@ -23,6 +23,9 @@ module.exports = {
     sex: {
       type: Sequelize.STRING,
     },
+    dob: {
+      type: Sequelize.STRING,
+    },
     address: {
       type: Sequelize.STRING,
     },
@@ -32,10 +35,10 @@ module.exports = {
     branch: {
       type: Sequelize.STRING,
     },
-    xstd: {
+    xmarks: {
       type: Sequelize.DECIMAL,
     },
-    xiistd: {
+    xiimarks: {
       type: Sequelize.DECIMAL,
     },
     cgpa: {
