@@ -17,16 +17,25 @@ module.exports = {
     email: {
       type: Sequelize.STRING,
     },
+    phone: {
+      type: Sequelize.INTEGER,
+    },
+    sex: {
+      type: Sequelize.STRING,
+    },
+    address: {
+      type: Sequelize.STRING,
+    },
     year: {
       type: Sequelize.STRING,
     },
     branch: {
       type: Sequelize.STRING,
     },
-    xclass: {
+    xstd: {
       type: Sequelize.DECIMAL,
     },
-    xiiclass: {
+    xiistd: {
       type: Sequelize.DECIMAL,
     },
     cgpa: {
@@ -36,7 +45,7 @@ module.exports = {
       type: Sequelize.BOOLEAN,
     },
     currentbacklog: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.BOOLEAN,
     },
     placed: {
       type: Sequelize.BOOLEAN,
