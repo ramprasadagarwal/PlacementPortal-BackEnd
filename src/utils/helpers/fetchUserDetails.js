@@ -1,7 +1,7 @@
 const Models = require('../../../models');
 
-module.exports = emailId => Models.users.find({
+module.exports = usn => Models.users.find({
   where: {
-    email: emailId,
+    usn,
   },
 });
