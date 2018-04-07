@@ -9,5 +9,5 @@ const isExsitingUser = usn => Models.users.findAll({
     if (user.length === 0) return false;
     return true;
   })
-  .catch(() => true);
+  .catch(err => err);
 module.exports = isExsitingUser;
