@@ -6,6 +6,6 @@ module.exports = req => jwt.verify(req.headers.authtoken, 'placement-portal', (e
       message: 'token expired',
     };
   }
-  return decoded;
+  return decoded.usn;
 });
 
