@@ -6,19 +6,29 @@ module.exports = {
   method: 'POST',
   path: '/signup',
   handler: (Request, Response) => {
-    const userData = Request.payload;
+    const userData = JSON.parse(Request.payload);
     isExsitingUser(userData.usn)
       .then((existingUser) => {
+        console.log(existingUser);
         if (existingUser) {
-          Response('User Already Registered').code(409);
+          Response({
+            code: 409,
+            message: 'User Already Registered',
+          });
         } else {
           createNewUser(encryptUserData(userData))
             .then((databaseMessage) => {
-              const expectedOutput = ['usn', 'createdAt', 'id', 'password', 'updatedAt'];
+              const expectedOutput = ['id', 'usn', 'fullname', 'email', 'phone', 'sex', 'dob', 'address', 'year', 'branch', 'xmarks', 'xiimarks', 'cgpa', 'historybacklog', 'currentbacklog', 'placed', 'password', 'createdAt', 'updatedAt'];
               if (Object.keys(databaseMessage).sort().toString() === expectedOutput.sort().toString()) {
-                Response('User Registered Successfully').code(201);
+                Response({
+                  code: 201,
+                  message: 'User Registered Successfully',
+                });
               } else {
-                Response('Internal Database Server Error').code(500);
+                Response({
+                  code: 500,
+                  message: 'Internal Database Server Error',
+                });
               }
             });
         }
