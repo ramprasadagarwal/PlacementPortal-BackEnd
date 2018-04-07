@@ -7,14 +7,14 @@ module.exports = [
     method: 'POST',
     path: '/login',
     handler: (Request, Response) => {
-      const userData = Request.payload;
+      const userData = JSON.parse(Request.payload);
       fetchUserDetails(userData.usn)
         .then((result) => {
           if (result !== null && verifyPassword(userData.password, result.dataValues.password)) {
             Response({
               code: 200,
               token: createToken(result.dataValues.usn),
-              fullName: result.dataValues.fullName,
+              fullName: result.dataValues.fullname,
             });
           } else {
             Response({
