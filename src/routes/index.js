@@ -1,6 +1,7 @@
 const signup = require('./signup');
 const login = require('./login');
 const profile = require('./profile');
+const promote = require('./promote');
 
 module.exports = [{
   method: 'GET',
@@ -11,4 +12,5 @@ module.exports = [{
     signup,
     login,
     profile,
+    promote,
   );

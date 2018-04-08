@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     currentbacklog: DataTypes.BOOLEAN,
     placed: DataTypes.BOOLEAN,
     password: DataTypes.STRING,
+    role: DataTypes.BOOLEAN,
   }, {});
   users.associate = function (models) {
     // associations can be defined here

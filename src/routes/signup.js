@@ -18,7 +18,7 @@ module.exports = {
         } else {
           createNewUser(encryptUserData(userData))
             .then((databaseMessage) => {
-              const expectedOutput = ['id', 'usn', 'fullname', 'email', 'phone', 'sex', 'dob', 'address', 'year', 'branch', 'xmarks', 'xiimarks', 'cgpa', 'historybacklog', 'currentbacklog', 'placed', 'password', 'createdAt', 'updatedAt'];
+              const expectedOutput = ['id', 'usn', 'fullname', 'email', 'phone', 'sex', 'dob', 'address', 'year', 'branch', 'xmarks', 'xiimarks', 'cgpa', 'historybacklog', 'currentbacklog', 'placed', 'password', 'createdAt', 'updatedAt', 'role'];
               if (Object.keys(databaseMessage).sort().toString() === expectedOutput.sort().toString()) {
                 Response({
                   code: 201,
