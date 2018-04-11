@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     test: DataTypes.DATE,
     interview: DataTypes.DATE,
     venue: DataTypes.STRING,
+    deadline: DataTypes.DATE,
   }, {});
   companies.associate = function (models) {
     // associations can be defined here
