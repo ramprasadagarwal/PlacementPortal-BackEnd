@@ -6,7 +6,7 @@ module.exports = usn => Model.users.findOne({
   raw: true,
 })
   .then((result) => {
-    if (result) return true;
+    if (result.role) return true;
     return false;
   })
   .catch(() => false);
