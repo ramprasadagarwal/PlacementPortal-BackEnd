@@ -8,11 +8,18 @@ module.exports = [
       const userData = JSON.parse(request.payload);
       if (userData.password === 'ramprasad') { // export the password to env variable later
         promiteUser(userData.usn)
-          .then(() => {
-            response({
-              code: 201,
-              message: 'Pomoted Successfully',
-            });
+          .then((result) => {
+            if (result === 1) {
+              response({
+                code: 201,
+                message: 'Pomoted Successfully',
+              });
+            } else {
+              response({
+                code: 400,
+                message: 'Invalid Request',
+              });
+            }
           })
           .catch(() => {
             response({
