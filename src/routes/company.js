@@ -47,8 +47,9 @@ module.exports = [
       getBranchnCGPA(usn)
         .then(details => getEligibleCompanies(details.cgpa, convertBranchIntoCode(details.branch))
           .then((result) => {
+            console.log(result);
             response({
-              messgae: result,
+              message: result,
               code: 200,
             });
           }));
