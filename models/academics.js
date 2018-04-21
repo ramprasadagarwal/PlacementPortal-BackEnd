@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     credit2: DataTypes.INTEGER,
     cgpa3: DataTypes.DECIMAL,
     credit3: DataTypes.INTEGER,
-    cpga4: DataTypes.DECIMAL,
+    cgpa4: DataTypes.DECIMAL,
     credit4: DataTypes.INTEGER,
     cgpa5: DataTypes.DECIMAL,
     credit5: DataTypes.INTEGER,

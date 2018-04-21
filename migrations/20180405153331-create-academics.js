@@ -54,7 +54,7 @@ module.exports = {
     credit3: {
       type: Sequelize.INTEGER,
     },
-    cpga4: {
+    cgpa4: {
       type: Sequelize.DECIMAL,
     },
     credit4: {
