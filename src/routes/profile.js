@@ -20,6 +20,7 @@ module.exports = [
         .then(result => ([result[0][0], result[1][0]]))
         .then((result) => {
           const profile = {
+            usn,
             fullname: result[0].fullname,
             dob: result[0].dob,
             sex: result[0].sex,
@@ -27,10 +28,10 @@ module.exports = [
             phone: result[0].phone,
             address: result[0].address,
             branch: result[0].branch,
-            xstd: result[0].xmarks,
-            xiistd: result[0].xiimarks,
             historybacklog: result[0].historybacklog,
             currentbacklog: result[0].currentbacklog,
+            xstd: result[0].xmarks,
+            xiistd: result[0].xiimarks,
             xinstitute: result[1].xinstitute,
             xboard: result[1].xboard,
             xmarks: result[1].xmarks,
@@ -46,7 +47,7 @@ module.exports = [
             credit2: result[1].credit2,
             cgpa3: result[1].cgpa3,
             credit3: result[1].credit3,
-            cgpa4: result[1].cpga4,
+            cgpa4: result[1].cgpa4,
             credit4: result[1].credit4,
             cgpa5: result[1].cgpa5,
             credit5: result[1].credit5,
@@ -56,6 +57,7 @@ module.exports = [
             credit7: result[1].credit7,
             cgpa8: result[1].cgpa8,
             credit8: result[1].credit8,
+            cgpa: result[0].cgpa,
             totalcredit: result[1].totalcredit,
             mutebacklog: result[1].mutebacklog,
             clearbacklog: result[1].clearbacklog,
@@ -74,7 +76,6 @@ module.exports = [
     handler: (req, res) => {
       const userData = JSON.parse(req.payload);
       const usn = getJWTPayload(req);
-      console.log(usn, userData);
       const academicDetails = {
         usn,
         xinstitute: userData.xinstitute,
@@ -92,7 +93,7 @@ module.exports = [
         credit2: userData.credit2,
         cgpa3: userData.cgpa3,
         credit3: userData.credit3,
-        cpga4: userData.cgpa4,
+        cgpa4: userData.cgpa4,
         credit4: userData.credit4,
         cgpa5: userData.cgpa5,
         credit5: userData.credit5,
@@ -119,10 +120,8 @@ module.exports = [
         xiimarks: userData.xiimarks,
         historybacklog: Number(userData.mutebacklog) + Number(userData.clearbacklog),
         currentbacklog: userData.currentbacklog,
-        placed: false,
-        cgpa: 0,
+        cgpa: calculateCGPA(academicDetails),
       };
-      console.log(profileDetails);
       Models.users.update(
         profileDetails,
         { where: { usn } },
@@ -131,7 +130,18 @@ module.exports = [
           academicDetails,
           { where: { usn } },
         ))
-        .then(console.log);
+        .then(() => {
+          res({
+            code: 204,
+            message: 'Updated Success',
+          });
+        })
+        .catch(() => {
+          res({
+            code: 500,
+            message: 'Sorry, could not complete your request!',
+          });
+        });
     },
   }];
 
