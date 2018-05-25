@@ -120,7 +120,7 @@ module.exports = [
         xiimarks: userData.xiimarks,
         historybacklog: Number(userData.mutebacklog) + Number(userData.clearbacklog),
         currentbacklog: userData.currentbacklog,
-        cgpa: calculateCGPA(academicDetails),
+        cgpa: calculateCGPA(academicDetails).toFixed(2),
       };
       Models.users.update(
         profileDetails,
