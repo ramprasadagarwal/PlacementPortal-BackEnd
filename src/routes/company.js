@@ -17,10 +17,10 @@ module.exports = [
           if (allowed) {
             createCompany(userData)
               .then((result) => {
-                if (result !== false) {
+                if (result !== 'Error') {
                   response({
                     code: 201,
-                    message: 'Company Created Successfully',
+                    message: `Company Detials ${result} Successfully`,
                   });
                 } else {
                   response({
