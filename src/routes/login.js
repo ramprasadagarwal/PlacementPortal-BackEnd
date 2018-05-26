@@ -15,6 +15,7 @@ module.exports = [
               code: 200,
               token: createToken(result.dataValues.usn),
               fullName: result.dataValues.fullname,
+              isPC: result.dataValues.role,
             });
           } else {
             Response({

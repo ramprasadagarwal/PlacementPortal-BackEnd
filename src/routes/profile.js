@@ -28,8 +28,8 @@ module.exports = [
             phone: result[0].phone,
             address: result[0].address,
             branch: result[0].branch,
-            historybacklog: result[0].historybacklog,
-            currentbacklog: result[0].currentbacklog,
+            historybacklog: Number(result[0].historybacklog),
+            currentbacklog: Number(result[0].currentbacklog),
             xstd: result[0].xmarks,
             xiistd: result[0].xiimarks,
             xinstitute: result[1].xinstitute,
@@ -59,8 +59,8 @@ module.exports = [
             credit8: result[1].credit8,
             cgpa: result[0].cgpa,
             totalcredit: result[1].totalcredit,
-            mutebacklog: result[1].mutebacklog,
-            clearbacklog: result[1].clearbacklog,
+            mutebacklog: Number(result[1].mutebacklog),
+            clearbacklog: Number(result[1].clearbacklog),
           };
           res({
             profile,
@@ -103,10 +103,10 @@ module.exports = [
         credit7: userData.credit7,
         cgpa8: userData.cgpa8,
         credit8: userData.credit8,
-        totalcredit: userData.totalcredit,
-        mutebacklog: userData.mutebacklog,
-        clearbacklog: userData.clearbacklog,
-        currentbacklog: userData.currentbacklog,
+        totalcredit: Number(userData.totalcredit),
+        mutebacklog: Number(userData.mutebacklog),
+        clearbacklog: Number(userData.clearbacklog),
+        currentbacklog: Number(userData.currentbacklog),
       };
       const profileDetails = {
         fullname: userData.fullname,
@@ -118,8 +118,8 @@ module.exports = [
         branch: userData.branch,
         xmarks: userData.xmarks,
         xiimarks: userData.xiimarks,
-        historybacklog: Number(userData.mutebacklog) + Number(userData.clearbacklog),
-        currentbacklog: userData.currentbacklog,
+        historybacklog: Number(userData.mutebacklog) + Number(userData.clearbacklog) >= 1,
+        currentbacklog: Number(userData.currentbacklog),
         cgpa: calculateCGPA(academicDetails).toFixed(2),
       };
       Models.users.update(
@@ -136,7 +136,8 @@ module.exports = [
             message: 'Updated Success',
           });
         })
-        .catch(() => {
+        .catch((ee) => {
+          console.log(ee);
           res({
             code: 500,
             message: 'Sorry, could not complete your request!',

@@ -25,6 +25,7 @@ module.exports = {
                   message: 'User Registered Successfully',
                   token: createToken(databaseMessage.usn),
                   fullName: databaseMessage.fullname,
+                  isPC: databaseMessage.role,
                 });
               } else {
                 Response({

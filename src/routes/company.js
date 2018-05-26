@@ -44,14 +44,22 @@ module.exports = [
     handler: (request, response) => {
       const usn = getJWTPayload(request);
       getBranchnCGPA(usn)
-        .then(details => getEligibleCompaniesWithResponse(usn, details.cgpa, convertBranchIntoCode(details.branch))
-          .then((result) => {
-            console.log(result);
+        .then((details) => {
+          if (details.branch === null || details.cgpa === null) {
             response({
-              message: result,
-              code: 200,
+              message: 'Incomplete Profile',
+              code: 400,
             });
-          }));
+          } else {
+            getEligibleCompaniesWithResponse(usn, details.cgpa, convertBranchIntoCode(details.branch))
+              .then((result) => {
+                response({
+                  message: result,
+                  code: 200,
+                });
+              });
+          }
+        });
     },
   },
 ];
