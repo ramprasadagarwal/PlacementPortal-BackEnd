@@ -29,7 +29,6 @@ module.exports = [
             address: result[0].address,
             branch: result[0].branch,
             historybacklog: Number(result[0].historybacklog),
-            currentbacklog: Number(result[0].currentbacklog),
             xstd: result[0].xmarks,
             xiistd: result[0].xiimarks,
             xinstitute: result[1].xinstitute,
@@ -61,6 +60,7 @@ module.exports = [
             totalcredit: result[1].totalcredit,
             mutebacklog: Number(result[1].mutebacklog),
             clearbacklog: Number(result[1].clearbacklog),
+            currentbacklog: Number(result[1].currentbacklog),
           };
           res({
             profile,
