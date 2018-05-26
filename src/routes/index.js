@@ -3,6 +3,7 @@ const login = require('./login');
 const profile = require('./profile');
 const promote = require('./promote');
 const company = require('./company');
+const register = require('./register');
 
 module.exports = [{
   method: 'GET',
@@ -15,4 +16,5 @@ module.exports = [{
     profile,
     promote,
     company,
+    register,
   );

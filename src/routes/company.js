@@ -1,7 +1,7 @@
 const createCompany = require('../utils/helpers/createCompany');
 const VerifyRole = require('../utils/helpers/verifyRole');
 const getJWTPayload = require('../utils/helpers/getJWTPayload');
-const getEligibleCompanies = require('../utils/helpers/getEligibleCompanies');
+const getEligibleCompaniesWithResponse = require('../utils/helpers/getEligibleCompaniesWithResponse');
 const getBranchnCGPA = require('../utils/helpers/getBranch');
 const convertBranchIntoCode = require('../utils/helpers/convertBranchIntoCode');
 
@@ -42,10 +42,9 @@ module.exports = [
     method: 'GET',
     path: '/company',
     handler: (request, response) => {
-      const userData = JSON.parse(request.payload);
       const usn = getJWTPayload(request);
       getBranchnCGPA(usn)
-        .then(details => getEligibleCompanies(details.cgpa, convertBranchIntoCode(details.branch))
+        .then(details => getEligibleCompaniesWithResponse(usn, details.cgpa, convertBranchIntoCode(details.branch))
           .then((result) => {
             console.log(result);
             response({
