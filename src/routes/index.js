@@ -5,6 +5,7 @@ const promote = require('./promote');
 const placed = require('./placed');
 const company = require('./company');
 const register = require('./register');
+const studentList = require('./studentList');
 
 module.exports = [{
   method: 'GET',
@@ -19,4 +20,5 @@ module.exports = [{
     company,
     register,
     placed,
+    studentList,
   );
