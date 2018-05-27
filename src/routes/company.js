@@ -17,7 +17,7 @@ module.exports = [
           if (allowed) {
             createCompany(userData)
               .then((result) => {
-                if (result !== 'Error') {
+                if (result === 'Updated' || result === 'Inserted') {
                   response({
                     code: 201,
                     message: `Company Detials ${result} Successfully`,
@@ -25,7 +25,7 @@ module.exports = [
                 } else {
                   response({
                     code: 500,
-                    message: 'Some Error Occured, Please Try Again',
+                    message: result,
                   });
                 }
               });

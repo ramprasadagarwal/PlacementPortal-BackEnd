@@ -15,4 +15,4 @@ module.exports = details => Model.companies.findOne({
   return Model.companies.create(details)
     .then(() => 'Inserted');
 })
-  .catch(() => 'Error');
+  .catch(err => err);
