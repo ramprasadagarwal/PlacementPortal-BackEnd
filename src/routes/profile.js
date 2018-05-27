@@ -136,8 +136,7 @@ module.exports = [
             message: 'Updated Success',
           });
         })
-        .catch((ee) => {
-          console.log(ee);
+        .catch(() => {
           res({
             code: 500,
             message: 'Sorry, could not complete your request!',
