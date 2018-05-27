@@ -50,6 +50,11 @@ module.exports = [
               message: 'Incomplete Profile',
               code: 400,
             });
+          } else if (details.placed !== -1) {
+            response({
+              message: 'Placed',
+              code: 200,
+            });
           } else {
             getEligibleCompaniesWithResponse(usn, details.cgpa, convertBranchIntoCode(details.branch))
               .then((result) => {
