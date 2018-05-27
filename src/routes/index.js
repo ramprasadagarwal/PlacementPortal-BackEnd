@@ -2,6 +2,7 @@ const signup = require('./signup');
 const login = require('./login');
 const profile = require('./profile');
 const promote = require('./promote');
+const placed = require('./placed');
 const company = require('./company');
 const register = require('./register');
 
@@ -17,4 +18,5 @@ module.exports = [{
     promote,
     company,
     register,
+    placed,
   );

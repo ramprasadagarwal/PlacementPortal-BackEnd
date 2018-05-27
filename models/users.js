@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     cgpa: DataTypes.DECIMAL,
     historybacklog: DataTypes.BOOLEAN,
     currentbacklog: DataTypes.BOOLEAN,
-    placed: DataTypes.BOOLEAN,
+    placed: DataTypes.INTEGER,
     password: DataTypes.STRING,
     role: DataTypes.BOOLEAN,
   }, {});
