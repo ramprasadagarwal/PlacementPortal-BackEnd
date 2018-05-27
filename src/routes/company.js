@@ -50,7 +50,7 @@ module.exports = [
               message: 'Incomplete Profile',
               code: 400,
             });
-          } else if (details.placed !== -1) {
+          } else if (details.placed !== -1 && details.placed !== null) {
             response({
               message: 'Placed',
               code: 200,

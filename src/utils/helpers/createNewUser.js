@@ -6,7 +6,6 @@ const createUser = studentDetails => Models.users.create(studentDetails)
     mutebacklog: -1,
     currentbacklog: -1,
     clearbacklog: -1,
-    placed: -1,
   })
     .then(() => details.dataValues))
   .catch(err => err);
